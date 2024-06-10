@@ -1,6 +1,17 @@
 import "./FortuneCookieOpen";
 
-export default function FortuneCookieOpen() {
+export default function FortuneCookieOpen({ generateRandNum }) {
+  useEffect(() => {
+    const getRandomFortune = async () => {
+      try {
+        const response = await axios.get(`fortune/${generateRandNum}`);
+      } catch (err) {
+        console.error("Error getting specific fortune: ", err);
+      }
+    };
+    getRandomFortune();
+  }, []);
+
   const handleButtonClick = async () => {
     try {
       navigate("/");
