@@ -3,6 +3,16 @@ import closedFortuneCookie from "../../assets/images/FortuneCookie.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function FortuneCookieClosed() {
+  const navigate = useNavigate();
+
+  const handleClickGetFortune = async () => {
+    try {
+      navigate(`fortune/${generateRandNum}`);
+    } catch (err) {
+      console.error("Error getting fortune: ", err);
+    }
+  };
+
   return (
     <section className="container">
       <h1>Fortune Roasties</h1>
