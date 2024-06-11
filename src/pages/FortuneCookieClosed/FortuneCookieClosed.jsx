@@ -2,13 +2,17 @@ import "./FortuneCookieClosed.scss";
 import closedFortuneCookie from "../../assets/images/FortuneCookie.svg";
 import { useNavigate } from "react-router-dom";
 
-export default function FortuneCookieClosed({ generateRandNum }) {
-  console.log("Random number: ", generateRandNum);
+export default function FortuneCookieClosed({
+  generateRandNum,
+  resetBtnClicked,
+  setResetBtnClicked,
+}) {
   const navigate = useNavigate();
 
   const handleClickGetFortune = async () => {
     try {
       navigate(`fortune/${generateRandNum}`);
+      setResetBtnClicked(false);
     } catch (err) {
       console.error("Error getting fortune: ", err);
     }

@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function FortuneCookieOpen({ generateRandNum }) {
+export default function FortuneCookieOpen({
+  generateRandNum,
+  resetBtnClicked,
+  setResetBtnClicked,
+}) {
   const navigate = useNavigate();
 
   const [selectedFortune, setSelectedFortune] = useState("");
@@ -25,8 +29,9 @@ export default function FortuneCookieOpen({ generateRandNum }) {
     getRandomFortune();
   }, []);
 
-  const handleButtonClick = async () => {
+  const handleClickReset = async () => {
     try {
+      setResetBtnClicked(true);
       navigate("/");
     } catch (err) {
       console.error("Error returning to default page: ", err);
@@ -40,7 +45,7 @@ export default function FortuneCookieOpen({ generateRandNum }) {
         <p>{selectedFortune}</p>
         <img src={openFortuneCookieRight} />
       </div>
-      <button onClick={handleButtonClick}>Get Another Fortune</button>
+      <button onClick={handleClickReset}>Get Another Fortune</button>
     </>
   );
 }

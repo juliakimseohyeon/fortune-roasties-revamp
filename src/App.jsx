@@ -7,8 +7,8 @@ import FortuneCookieOpen from "./pages/FortuneCookieOpen/FortuneCookieOpen";
 
 function App() {
   const [fortunes, setFortunes] = useState([]);
-  console.log("Fortune array length: ", fortunes.length);
-  console.log("fortunes: ", fortunes);
+  const [resetBtnClicked, setResetBtnClicked] = useState(false);
+
   const generateRandNum = Math.floor(Math.random() * fortunes.length); // Generate a random number between 0 and index number of fortunes
 
   useEffect(() => {
@@ -18,7 +18,6 @@ function App() {
           `${import.meta.env.VITE_API_URL}/fortune`
         );
         setFortunes(response.data);
-        console.log("Received fortunes: ", response.data);
       } catch (err) {
         console.error("Error getting all fortunes: ", err);
       }
@@ -26,16 +25,32 @@ function App() {
     getAllFortunes();
   }, []);
 
+  useEffect(() => {
+    generateRandNum;
+  }, [resetBtnClicked]);
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<FortuneCookieClosed generateRandNum={generateRandNum} />}
+          element={
+            <FortuneCookieClosed
+              generateRandNum={generateRandNum}
+              resetBtnClicked={resetBtnClicked}
+              setResetBtnClicked={setResetBtnClicked}
+            />
+          }
         />
         <Route
           path="/fortune/:id"
-          element={<FortuneCookieOpen generateRandNum={generateRandNum} />}
+          element={
+            <FortuneCookieOpen
+              generateRandNum={generateRandNum}
+              resetBtnClicked={resetBtnClicked}
+              setResetBtnClicked={setResetBtnClicked}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
