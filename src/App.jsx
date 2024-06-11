@@ -30,30 +30,33 @@ function App() {
   }, [resetBtnClicked]);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <FortuneCookieClosed
-              generateRandNum={generateRandNum}
-              resetBtnClicked={resetBtnClicked}
-              setResetBtnClicked={setResetBtnClicked}
-            />
-          }
-        />
-        <Route
-          path="/fortune/:id"
-          element={
-            <FortuneCookieOpen
-              generateRandNum={generateRandNum}
-              resetBtnClicked={resetBtnClicked}
-              setResetBtnClicked={setResetBtnClicked}
-            />
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <h1>Fortune Roasties</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <FortuneCookieClosed
+                generateRandNum={generateRandNum}
+                resetBtnClicked={resetBtnClicked}
+                setResetBtnClicked={setResetBtnClicked}
+              />
+            }
+          />
+          <Route
+            path="/fortune/:id"
+            element={
+              <FortuneCookieOpen
+                generateRandNum={generateRandNum}
+                resetBtnClicked={resetBtnClicked}
+                setResetBtnClicked={setResetBtnClicked}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

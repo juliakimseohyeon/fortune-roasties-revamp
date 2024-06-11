@@ -38,14 +38,14 @@ export default function FortuneCookieOpen({
     }
   };
   return (
-    <>
-      <h1>Here's Your Fortune</h1>
+    <section className="container">
+      <h2>Here's Your Fortune</h2>
       <div className="open-fortune__result">
-        <img src={openFortuneCookieLeft} />
-        <p>{selectedFortune}</p>
-        <img src={openFortuneCookieRight} />
+        <img className="open-fortune__img" src={openFortuneCookieLeft} />
+        <p className="open-fortune__text">{selectedFortune}</p>
+        <img className="open-fortune__img" src={openFortuneCookieRight} />
       </div>
       <button onClick={handleClickReset}>Get Another Fortune</button>
-    </>
+    </section>
   );
 }

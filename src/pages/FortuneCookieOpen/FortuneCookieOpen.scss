@@ -3,5 +3,10 @@
 .open-fortune {
   &__result {
     @include display-flex(flex, row);
+    width: 100%;
+    gap: 0.5rem;
+  }
+  &__img {
+    width: 4rem;
   }
 }

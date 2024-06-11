@@ -1,6 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 
-.container {
-  @include display-flex(flex, column);
-  gap: 2rem;
+.closed-fortune {
+  &__img {
+    width: 6rem;
+  }
 }
