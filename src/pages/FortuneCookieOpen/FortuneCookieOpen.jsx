@@ -13,6 +13,7 @@ export default function FortuneCookieOpen({
   const navigate = useNavigate();
 
   const [selectedFortune, setSelectedFortune] = useState("");
+  const [roastCategory, setRoastCategory] = useState("");
 
   useEffect(() => {
     const getRandomFortune = async () => {
@@ -20,8 +21,9 @@ export default function FortuneCookieOpen({
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/fortune/${generateRandNum}`
         );
-
+        setRoastCategory(response.data.category);
         setSelectedFortune(response.data.fortune);
+        return roastCategory;
       } catch (err) {
         console.error("Error getting specific fortune: ", err);
       }
@@ -39,7 +41,9 @@ export default function FortuneCookieOpen({
   };
   return (
     <section className="container">
-      <h2>Here's Your Fortune</h2>
+      <h2>
+        Here's Your Fortune <br /> {roastCategory === "roast" ? "🥵" : "🥳"}
+      </h2>
       <div className="open-fortune__result">
         <img className="open-fortune__img" src={openFortuneCookieLeft} />
         <p className="open-fortune__text">{selectedFortune}</p>
