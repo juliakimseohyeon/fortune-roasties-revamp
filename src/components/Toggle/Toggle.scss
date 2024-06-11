@@ -1,0 +1,81 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.container--toggle {
+  @include display-flex(flex, column);
+}
+
+.toggle {
+  &__checkbox {
+    display: none;
+  }
+  &__label {
+    display: flex;
+    position: relative;
+    transition: 0.3s;
+    width: 5rem;
+    height: 2rem;
+    background-color: $color-secondary-gray;
+    border-radius: 3rem;
+    border: 1px solid $color-primary-blue;
+    cursor: pointer;
+  }
+  &__label:before {
+    width: 1.5rem;
+    height: 1.5rem;
+    animation-name: switch;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    transition: 0.3s ease-in;
+    content: "";
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    background-color: $color-primary-white;
+    border-radius: 1rem;
+  }
+  // Change label's background colour and border colour whenever checkbox is clicked
+  &__checkbox:checked + &__label {
+    background-color: $color-secondary-white;
+    border: 1px solid $color-primary-white;
+  }
+  &__checkbox:checked + &__label:before {
+    animation-name: reverse;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    transition: 0.3s ease-in;
+    background-color: $color-primary-gray;
+  }
+}
+
+@keyframes reverse {
+  0% {
+    left: 3.25rem;
+    width: 1.5rem;
+  }
+
+  60% {
+    left: 2.5rem;
+    width: 2.25rem;
+  }
+
+  100% {
+    left: 0.25rem;
+  }
+}
+
+@keyframes switch {
+  0% {
+    left: 0.25rem;
+  }
+
+  60% {
+    left: 2.5rem;
+    width: 2.25rem;
+  }
+
+  100% {
+    left: 3.25rem;
+    width: 1.5rem;
+  }
+}
