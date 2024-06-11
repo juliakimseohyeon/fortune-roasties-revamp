@@ -15,7 +15,7 @@
     transition: 0.3s;
     width: 5rem;
     height: 2rem;
-    background-color: $color-secondary-gray;
+    background-color: $color-primary-gray;
     border-radius: 3rem;
     border: 1px solid $color-primary-blue;
     cursor: pointer;
@@ -37,7 +37,6 @@
   // Change label's background colour and border colour whenever checkbox is clicked
   &__checkbox:checked + &__label {
     background-color: $color-secondary-white;
-    border: 1px solid $color-primary-white;
   }
   &__checkbox:checked + &__label:before {
     animation-name: reverse;
