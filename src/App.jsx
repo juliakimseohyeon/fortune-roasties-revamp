@@ -29,7 +29,7 @@ function App() {
           element={<FortuneCookieClosed generateRandNum={generateRandNum} />}
         />
         <Route
-          path="/:id"
+          path="/fortune/:id"
           element={<FortuneCookieOpen generateRandNum={generateRandNum} />}
         />
       </Routes>
