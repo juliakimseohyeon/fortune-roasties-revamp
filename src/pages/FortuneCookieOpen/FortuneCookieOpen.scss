@@ -36,6 +36,7 @@
 }
 
 .fire::before {
+  width: 100%;
   content: "";
   background-image: url("../../assets/images/silver-glitter-background.png"),
     url("../../assets/images/silver-glitter-background.png"),
@@ -51,9 +52,9 @@
   background-blend-mode: hard-light, color-dodge, multiply;
   background-position: 0px 0px, 0px 0px;
   background-repeat: repeat, repeat, repeat, no-repeat;
-  mix-blend-mode: color-dodge;
+  mix-blend-mode: exclusion;
   filter: brightness(3.7) blur(7px) contrast(6);
-  animation: fire 1.75s linear infinite, fadeOut 2s forwards;
+  animation: fire 1.75s linear infinite, fadeOut 3s forwards;
   box-shadow: inset 0 -40px 50px -60px #63bbc5;
   z-index: -1;
 }
