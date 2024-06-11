@@ -1,34 +1,27 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/mixins" as *;
 
-:root {
+body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: $color-primary-white;
-  background-color: $color-primary-gray;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-}
-
-a {
-  font-weight: 500;
-  color: $color-primary-blue;
-  text-decoration: inherit;
-}
-a:hover {
-  color: $color-secondary-blue;
-}
-
-body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+  color: $color-primary-blue;
+}
+
+a:hover {
+  color: $color-secondary-blue;
 }
 
 h1 {
@@ -43,10 +36,10 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: $color-secondary-gray;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: $color-primary-blue;
 }
@@ -57,15 +50,21 @@ button:hover {
   width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: $color-primary-gray;
-    background-color: $color-primary-white;
-  }
-  a:hover {
-    color: $color-primary-blue;
-  }
+.theme-light {
+  color: $color-primary-gray;
+  background-color: $color-primary-white;
+
   button {
     background-color: $color-secondary-white;
+  }
+}
+
+.theme-dark {
+  color: $color-primary-white;
+  background-color: $color-primary-gray;
+
+  button {
+    background-color: $color-secondary-gray;
+    color: $color-primary-white;
   }
 }
