@@ -1,0 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+
+.open-fortune {
+  &__result {
+    @include display-flex(flex, row);
+  }
+}

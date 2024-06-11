@@ -1,4 +1,4 @@
-import "./FortuneCookieClosed";
+import "./FortuneCookieClosed.scss";
 import closedFortuneCookie from "../../assets/images/FortuneCookie.svg";
 import { useNavigate } from "react-router-dom";
 
