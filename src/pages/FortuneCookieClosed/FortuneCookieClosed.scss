@@ -1,7 +1,14 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .closed-fortune {
   &__img {
     width: 6rem;
+    @include tablet {
+      width: 10rem;
+    }
+    @include desktop {
+      width: 20rem;
+    }
   }
 }

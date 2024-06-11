@@ -1,3 +1,6 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Flexbox                                  */
+/* -------------------------------------------------------------------------- */
 @mixin display-flex(
   $flex: flex,
   $direction,
@@ -8,4 +11,19 @@
   flex-direction: $direction;
   justify-content: $justify-content;
   align-items: $align-items;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Media Query                                */
+/* -------------------------------------------------------------------------- */
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
 }
