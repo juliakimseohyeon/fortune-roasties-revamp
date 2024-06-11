@@ -1,9 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { keepTheme } from "./utils/themes";
 import axios from "axios";
 import FortuneCookieClosed from "./pages/FortuneCookieClosed/FortuneCookieClosed";
 import FortuneCookieOpen from "./pages/FortuneCookieOpen/FortuneCookieOpen";
+import Toggle from "./components/Toggle/Toggle";
 
 function App() {
   const [fortunes, setFortunes] = useState([]);
@@ -23,6 +25,7 @@ function App() {
       }
     };
     getAllFortunes();
+    keepTheme(); // Keep dark or light mode theme
   }, []);
 
   useEffect(() => {
@@ -31,6 +34,7 @@ function App() {
 
   return (
     <>
+      <Toggle />
       <h1>Fortune Roasties</h1>
       <BrowserRouter>
         <Routes>
