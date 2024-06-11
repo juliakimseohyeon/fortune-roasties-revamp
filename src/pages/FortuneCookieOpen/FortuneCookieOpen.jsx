@@ -50,6 +50,7 @@ export default function FortuneCookieOpen({
         <img className="open-fortune__img" src={openFortuneCookieRight} />
       </div>
       <button onClick={handleClickReset}>Get Another Fortune</button>
+      <div className={roastCategory === "roast" && "fire"}></div>
     </section>
   );
 }
